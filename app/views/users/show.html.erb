@@ -1,0 +1,27 @@
+<h1><%= @user.username %></h1>
+
+<%= render "follows/form", user: @user %>
+
+<b>Tweets</b>
+<div class="infinite-tweets">
+  <ul id="feed">
+    <!-- <% @user.tweets.each do |tweet| %>
+      <li><%= render "tweets/tweet", tweet: tweet %></li>
+    <% end %> -->
+  </ul>
+  <a href="javascript:void(0)" class="fetch-more"></a>
+</div>
+
+<b>Followers</b>
+<ul>
+  <% @user.followers.each do |follower| %>
+    <li><%= follower.username %></li>
+  <% end %>
+</ul>
+
+<b>Followees</b>
+<ul>
+  <% @user.followees.each do |followee| %>
+    <li><%= followee.username %></li>
+  <% end %>
+</ul>

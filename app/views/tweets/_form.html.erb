@@ -1,0 +1,32 @@
+<h2>New Tweet!</h2>
+<form action="/tweets" method="POST" class="tweet-compose" data-tweets-ul="#feed">
+    <label>
+    Content
+    <textarea name="tweet[content]"></textarea>
+  </label>
+  <br>
+  <a href="javascript:void(0)" class="add-mentioned-user">Add Mention!</a>
+  <div class="mentioned-users">
+
+  </div>
+  <script type="text/template" class="mention-template" charset="utf-8">
+    <div class="mention-selector">
+      <label>
+        Mention
+          <select name="tweet[mentioned_user_ids][]">
+            <option></option>
+            <% User.all.each do |user| %>
+              <option value="<%= user.id %>"><%= user.username %></option>
+            <% end %>
+          </select>
+          <a href="javascript:void(0)" class="remove-mentioned-user">Remove This Mention</a>
+        <br>
+      </label>
+    </div>
+  </script>
+  <br>
+
+  <strong class="chars-left">140</strong>
+
+  <input type="Submit" value="Post Tweet!">
+</form>
